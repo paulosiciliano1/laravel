@@ -13,8 +13,8 @@ class CreateTableAppointments extends Migration
      */
     public function up()
     {
-        Schema::create('appointments', function (Blueprint $table) {
-            $table->biginteger('salon_service_id');
+        Schema::create('orders', function (Blueprint $table) {
+            $table->biginteger('product_id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->date('created_at');
@@ -29,6 +29,6 @@ class CreateTableAppointments extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('orders');
     }
 }

@@ -13,7 +13,7 @@ class CreateTableSalonService extends Migration
      */
     public function up()
     {
-        Schema::create('salon_service', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('salon_id')->unsigned();
             $table->foreign('salon_id')->references('id')->on('salons');
@@ -31,6 +31,6 @@ class CreateTableSalonService extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salon_service');
+        Schema::dropIfExists('products');
     }
 }
