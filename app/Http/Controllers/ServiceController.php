@@ -25,7 +25,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view("service/create");
+        return view("services/create");
     }
 
     /**

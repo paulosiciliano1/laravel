@@ -1,13 +1,22 @@
-@extends('layouts.app')
+<div class="modal" id="service_edit">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
 
-@section('content')
-<div class="container">
-    <div class="row">
-
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Service Edit</h4>
+      </div>
+      <div class="modal-body">
+        <p>you are going edit this service:"service name"</p>
+        <input name="service_name"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
     </div>
+  </div>
 </div>
-@endsection
-
-@section('scripts')
-
-@endsection
+{{--'id', 'name',--}}

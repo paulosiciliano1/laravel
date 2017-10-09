@@ -68,6 +68,6 @@
     <!-- Scripts -->
     @section('scripts')
       <script src="{{ asset('js/app.js') }}"></script>
-    @endsection
+    @show
 </body>
 </html>

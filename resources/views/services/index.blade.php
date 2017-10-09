@@ -2,15 +2,19 @@
 
 @section('content')
 <div class="col-md-8">
-      <caption>Services</caption>
+
+      @include('services.create')
+
+      @include('services.edit')
+      {{--
+      --}}
       <table class="table">
-        {{--'id', 'name'--}}
+        <caption>Services</caption>
         <thead>
           <tr>
             <th>#</th>
             <th>id</th>
             <th>Service</th>
-
           </tr>
         </thead>
         <tbody>
@@ -24,14 +28,14 @@
         </tbody>
       </table>
 </div>
+<div class="col-md-2">
+  <button id="create">create</button>
+  <button id="edit">edit</button>
+  <button id="delete">delete</button>
+</div>
 @endsection
-  {{--
+
 @section('scripts')
   @parent
-
-    script -edit
-    script -create
-    script -delete
-
+  <script src="js/services.js" type="text/javascript"></script>
 @endsection
-    --}}
