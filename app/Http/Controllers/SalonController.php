@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Salon;
 
 class SalonController extends Controller
 {
@@ -13,8 +14,8 @@ class SalonController extends Controller
      */
     public function index()
     {
-      $salon = App/Salon::latest()->paginate(20);
-      return view("salon/index",$salon);
+      $salons = Salon::latest()->paginate(20);
+      return view("salons/index",compact(['salons']));
     }
 
     /**

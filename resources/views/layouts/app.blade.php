@@ -57,11 +57,17 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
+        <div class="container-fluid">
+            <div class="row">
+            @include('dashboard/index')
+            @yield('content')
+          </div>
+      </div>
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    @section('scripts')
+      <script src="{{ asset('js/app.js') }}"></script>
+    @endsection
 </body>
 </html>

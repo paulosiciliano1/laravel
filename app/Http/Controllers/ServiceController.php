@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Service;
 
 class ServiceController extends Controller
 {
@@ -13,8 +14,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $service = Service::latest()->paginate(20);
-        return view("service/index");
+        $services = Service::paginate(20);
+        return view("services/index",compact(['services']));
     }
 
     /**
@@ -49,7 +50,7 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        $service = App\Service::find($id);
+        $service = Service::find($id);
         return view("service/show",$service);
     }
 
@@ -88,6 +89,7 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        App\Service::where('id',$id);
+        $service = Service::where('id',$id);
+        $service->delete;
     }
 }

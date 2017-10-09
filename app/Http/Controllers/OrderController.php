@@ -14,8 +14,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $order = Order::latest()->paginate(20);
-        retun redirect()->route('orders/show',$order);
+        $orders = Order::latest()->paginate(20);
+        return view('orders/index',compact(['orders']));
     }
     public function showOrder($id){
       $order = Order::find($id);
@@ -56,7 +56,7 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::latest()->paginate(20);
-        retun redirect()->route('orders/show',$order);
+        return redirect()->route('orders/show',$order);
     }
 
     /**
@@ -95,7 +95,7 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-      $order = App\Order::where('id', $id)
+      $order = App\Order::where('id', $id);
       $order->delete();
     }
 }

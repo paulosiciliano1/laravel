@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class ProductController extends Controller
 {
@@ -13,8 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-      $product = App/Product::latest()->paginate(20);
-      return view("product/index",$product);
+      $products  = Product::latest()->paginate(20);
+      return view("products/index",compact(['products']) );
     }
 
     /**
@@ -92,7 +93,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-      $product = App\Product::where('id', $id)
+      $product = App\Product::where('id', $id);
       $product->delete();
     }
 }

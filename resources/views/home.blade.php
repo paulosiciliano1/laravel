@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+
+        <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
 
@@ -13,11 +12,16 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    <h1>Help</h1>
+                    <h2>products</h2>
+                    <h2>orders</h2>
+                    <h2>users</h2>
+                    <h2>salons</h2>
+                    <h2>services</h2>
+                      </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+
 @endsection

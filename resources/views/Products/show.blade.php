@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+{{--this is for a single product--}}
 <div class="container">
     <div class="row">
 
@@ -9,5 +10,5 @@
 @endsection
 
 @section('scripts')
-
+ @parent
 @endsection
