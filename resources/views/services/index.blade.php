@@ -29,9 +29,11 @@
       </table>
 </div>
 <div class="col-md-2">
-  <button id="create">create</button>
-  <button id="edit">edit</button>
-  <button id="delete">delete</button>
+  <ul>
+    <li><button id="create">create</button></li>
+    <li><button id="edit">edit</button></li>
+    <li><button id="delete">delete</button></li>
+  </ul>
 </div>
 @endsection
 

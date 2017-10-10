@@ -29,13 +29,8 @@
       </table>
 </div>
 @endsection
-  {{--
+
 @section('scripts')
   @parent
-
-    script -edit
-    script -create
-    script -delete
-
+  <script src="js/roles.js" type="text/javascript"></script>
 @endsection
-    --}}

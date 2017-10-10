@@ -30,13 +30,8 @@
       </table>
 </div>
 @endsection
-  {{--
+
 @section('scripts')
   @parent
-
-    script -edit
-    script -create
-    script -delete
-
+  <script src="js/products.js" type="text/javascript"></script>
 @endsection
-    --}}
