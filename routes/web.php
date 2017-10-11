@@ -22,4 +22,4 @@ Route::resource('orders', 'OrderController');
 Route::resource('products', 'ProductController');
 Route::resource('roles', 'RoleController');
 Route::resource('salons', 'SalonController');
-Route::resource('services', 'serviceController');
+Route::resource('services', 'ServiceController');

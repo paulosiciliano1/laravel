@@ -1,5 +1,5 @@
 <div class="modal" id="service_edit">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
 
@@ -8,14 +8,19 @@
         </button>
         <h4 class="modal-title">Service Edit</h4>
       </div>
+      <form action="/services/1" method="POST">
+      {{ csrf_field() }}
+      {{ method_field('PATCH') }}
       <div class="modal-body">
-        <p>you are going edit this service:"service name"</p>
-        <input name="service_name"/>
+        <label for="service_id">you are going edit this service:</label>
+        <input class="form-control input-sm" type = "text" id="service_id" name = "name"/>
+        <input type = "hidden" id="service_name" name = "id" value = ""/>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
+    </form>
     </div>
   </div>
 </div>

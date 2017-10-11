@@ -7,13 +7,19 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
+      {{--Form Create Salon--}}
+      <form action="salons.store" method="post">
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        <input type="text" name="name">
+        <input type="text" name="address">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
+    </form>
+
     </div>
   </div>
 </div>

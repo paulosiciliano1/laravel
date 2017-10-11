@@ -30,6 +30,13 @@
         </tbody>
       </table>
 </div>
+<div class="col-md-2">
+  <ul>
+    <li><button id="create">create</button></li>
+    <li><button id="edit">edit</button></li>
+    <li><button id="delete">delete</button></li>
+  </ul>
+</div>
 @endsection
 
 @section('scripts')

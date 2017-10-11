@@ -19,14 +19,15 @@
         </thead>
         <tbody>
           @foreach($services as $key => $service)
-          <tr>
-            <th scope="row">{{$key}}</th>
+          <tr id="data_{{$service->id}}">
+            <th scope="row"><input type="checkbox" name="checkbox[]" value="{{$service->id}}">_{{$key}}</th>
             <td>{{$service->id}}</td>
             <td>{{$service->name}}</td>
           </tr>
           @endforeach
         </tbody>
       </table>
+      {{ $services->links() }}
 </div>
 <div class="col-md-2">
   <ul>

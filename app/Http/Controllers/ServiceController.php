@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Service;
+use Illuminate\Http\RedirectResponse;
 
 class ServiceController extends Controller
 {
@@ -14,7 +16,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::paginate(20);
+        $services = Service::paginate(15);
         return view("services/index",compact(['services']));
     }
 
@@ -39,7 +41,7 @@ class ServiceController extends Controller
         $service = New Service;
         $service->name = $request->name;
         $service->save();
-        return redirect()->route("service/index");
+        return redirect()->route("services.index");
     }
 
     /**
@@ -51,7 +53,7 @@ class ServiceController extends Controller
     public function show($id)
     {
         $service = Service::find($id);
-        return view("service/show",$service);
+        return view("services/show",$service);
     }
 
     /**
@@ -63,7 +65,7 @@ class ServiceController extends Controller
     public function edit($id)
     {
         $service = App\Service::find($id);
-        return view("service.edit",$service);
+        return view("services.edit",$service);
     }
 
     /**
@@ -75,21 +77,26 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-      App\Service::where('id', $id)
+      Service::where('id', $request->input('id'))
       ->update([
-        'name' => $request->name,
+        'name' => $request->input('name'),
       ]);
+      return redirect()->route("services.index");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id "could be an array of ints"
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        $service = Service::where('id',$id);
-        $service->delete;
+        $id = $request->input('id');
+        foreach($id as $id_service) {
+          DB::table('services')->where('id', $id_service)->delete();
+        }
+        $services = Service::paginate(15);
+        return $services->toJson();
     }
 }

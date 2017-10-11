@@ -8,14 +8,17 @@
         </button>
         <h4 class="modal-title">Service Create</h4>
       </div>
+      <form action="/services" method="post">
+      {{ csrf_field() }}
       <div class="modal-body">
         <p>you are going to add a service, aren't you?.</p>
-        <input name="service_name"/>
+        <input type="text" name="name"/>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
