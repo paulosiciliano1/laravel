@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="col-md-8">
+  @include('roles.create')
+  @include('roles.edit')
       <table class="table">
         <thead>
           <tr>
@@ -27,6 +29,7 @@
           @endforeach
         </tbody>
       </table>
+      {{ $roles->links() }}
 </div>
 <div class="col-md-2">
   <ul>

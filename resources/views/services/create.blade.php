@@ -12,7 +12,7 @@
       {{ csrf_field() }}
       <div class="modal-body">
         <p>you are going to add a service, aren't you?.</p>
-        <input type="text" name="name"/>
+        <input class="form-control input-sm" type="text" name="name"/>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Save changes</button>

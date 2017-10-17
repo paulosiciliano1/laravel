@@ -3,6 +3,8 @@
 @section('content')
 <div class="col-md-8">
   {{--id', 'name', 'address', 'created_at','updated_at'--}}
+  @include('salons.create')
+  @include('salons.edit')
       <table class="table">
         <caption>Salons</caption>
         <thead>
@@ -18,8 +20,8 @@
         <tbody>
           {{--'id','salon_id','service_id','price','duration'--}}
           @foreach($salons as $key => $salon)
-          <tr>
-            <th scope="row">{{$key}}</th>
+          <tr id="data_{{$salon->id}}">
+            <th scope="row"><input type="checkbox" name="checkbox[]" value="{{$salon->id}}">_{{$key}}</th>
             <td>{{$salon->id}}</td>
             <td>{{$salon->name}}</td>
             <td>{{$salon->address}}</td>
@@ -29,6 +31,7 @@
           @endforeach
         </tbody>
       </table>
+      {{ $salons->links() }}
 </div>
 <div class="col-md-2">
   <ul>

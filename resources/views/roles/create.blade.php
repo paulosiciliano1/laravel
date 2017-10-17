@@ -7,13 +7,18 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <form action="/roles" method="post">
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        <p>fill next field to add new role</p>
+        <label>Role</label>
+        <input type="text" name="role">
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit " class="btn btn-primary">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
+      </form>
     </div>
   </div>
 </div>

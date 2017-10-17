@@ -14,11 +14,11 @@ class CreateTableSalonService extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('product_id');
             $table->integer('salon_id')->unsigned();
-            $table->foreign('salon_id')->references('id')->on('salons');
+            $table->foreign('salon_id')->references('salon_id')->on('salons');
             $table->integer('service_id')->unsigned();
-            $table->foreign('service_id')->references('id')->on('services');
+            $table->foreign('service_id')->references('service_id')->on('services');
             $table->tinyInteger('price');
             $table->tinyInteger('duration');
         });

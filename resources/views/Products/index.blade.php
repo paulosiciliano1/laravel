@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="col-md-8">
+  @include('products.create')
+  @include('products.edit')
       <table class="table">
         <caption>Products</caption>
         <thead>
@@ -28,6 +30,7 @@
           @endforeach
         </tbody>
       </table>
+      {{ $products->links() }}
 </div>
 <div class="col-md-2">
   <ul>

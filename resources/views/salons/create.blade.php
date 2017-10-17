@@ -9,13 +9,17 @@
       </div>
 
       {{--Form Create Salon--}}
-      <form action="salons.store" method="post">
+      <form action="/salons" method="post">
+      {{ csrf_field() }}
       <div class="modal-body">
-        <input type="text" name="name">
-        <input type="text" name="address">
+        <p>Plese enter your salon below.</p>
+        <label for="csName">Salon name</label>
+        <input class="form-control input-sm" type="text" name="name" id="csName"/>
+        <label for="csAddress">Salon Address</label>
+        <input class="form-control input-sm" type="text" name="address" id="csAddress"/>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </form>

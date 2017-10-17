@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableSalons extends Migration
+class AlterOpeningHoursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateTableSalons extends Migration
      */
     public function up()
     {
-        Schema::create('salons', function (Blueprint $table) {
-            $table->increments('salon_id');
-            $table->string('name');
-            $table->string('address');
-            $table->timestamps();
+        Schema::table('opening_hours', function (Blueprint $table) {
+          $table->foreign('day_id')
+          ->references('day_id')->on('days')
+          ->onDelete('cascade');
         });
     }
 
@@ -28,6 +27,8 @@ class CreateTableSalons extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salons');
+        Schema::table('opening_hours', function (Blueprint $table) {
+            $table->dropForeign(['day_id']);
+        });
     }
 }

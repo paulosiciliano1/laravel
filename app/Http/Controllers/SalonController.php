@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Salon;
+use Carbon\Carbon;
 
 class SalonController extends Controller
 {
@@ -15,7 +16,7 @@ class SalonController extends Controller
     public function index()
     {
       $salons = Salon::latest()->paginate(20);
-      return view("salons/index",compact(['salons']));
+      return view("salons.index",compact(['salons']));
     }
 
     /**
@@ -25,7 +26,7 @@ class SalonController extends Controller
      */
     public function create()
     {
-        return view('salon.create');
+        return view('salons.create');
     }
 
     /**
@@ -40,10 +41,10 @@ class SalonController extends Controller
       $salon = new Salon;
       $salon->name = $request->name;
       $salon->address = $request->address;
-      $salon->created_at = $request->created_at;
-      $salon->updated_at = $request->updated_at;
+      $salon->created_at = Carbon::now();
+      $salon->updated_at = Carbon::now();
       $salon->save();
-      return redirect()->route("salon/index");
+      return redirect()->route("salons.index");
     }
 
     /**
@@ -54,8 +55,8 @@ class SalonController extends Controller
      */
     public function show($id)
     {
-        $salon = App\Salon::find($id);
-        return view("salon/show",$salon);
+        $salon = Salon::find($id);
+        return view("salons.show",$salon);
     }
 
     /**
@@ -67,7 +68,7 @@ class SalonController extends Controller
     public function edit($id)
     {
         $salon = Salon::find($id);
-        return view('Salon.edit',$salon);
+        return view('salons.edit',$salon);
     }
 
     /**
@@ -79,12 +80,14 @@ class SalonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        App\Salon::where('id', $id)
+        $id = $request->input('id');
+        Salon::where('id', $id)
         ->update([
-          'name' => $request->name,
-          'address' => $request->address,
+          'name' => $request->input('name'),
+          'address' => $request->input('address'),
           'updated_at' => Carbon::now(),
         ]);
+        return redirect()->route("salons.index");
     }
 
     /**
@@ -93,9 +96,13 @@ class SalonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-      $salon = App/Salon::find($id);
-      return redirect()->route('salon/show',$id);
+        $id = $request->input('id');
+        foreach($id as $id_salon) {
+          DB::table('salons')->where('id', $id_salon)->delete();
+        }
+        $salons = Salon::paginate(15);
+        return $salons->toJson();
     }
 }

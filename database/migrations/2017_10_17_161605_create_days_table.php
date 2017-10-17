@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableSalons extends Migration
+class CreateDaysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateTableSalons extends Migration
      */
     public function up()
     {
-        Schema::create('salons', function (Blueprint $table) {
-            $table->increments('salon_id');
-            $table->string('name');
-            $table->string('address');
-            $table->timestamps();
+        Schema::create('days', function (Blueprint $table) {
+            $table->tinyInteger("day_id",1)->unsigned()->autoIncrement();
+            $table->enum('day',['monday','tuesday','wednesday','thursday','friday','saturday','sunday']);
         });
     }
 
@@ -28,6 +26,6 @@ class CreateTableSalons extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salons');
+        Schema::dropIfExists('days');
     }
 }

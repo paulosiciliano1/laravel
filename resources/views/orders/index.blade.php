@@ -3,6 +3,8 @@
 @section('content')
 {{--'order_id', 'user_id', 'created_at', 'arrival_time'--}}
 <div class="col-md-8">
+  @include('orders.create')
+  @include('orders.edit')
       <table class="table">
         <thead>
           <tr>
@@ -26,6 +28,7 @@
           @endforeach
         </tbody>
       </table>
+      {{ $orders->links() }}
 </div>
 @endsection
 

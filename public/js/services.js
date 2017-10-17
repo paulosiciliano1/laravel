@@ -8,7 +8,7 @@ jQuery('#edit').click(function(){
     elements.push(jQuery(this).val());
   });
   if(!elements.length == 1){
-    alert('You have to select only 1 salon to launch edit function');
+    alert('You have to select only 1 service to launch edit function');
   }else{
     var service_name = $("#data_" + elements +">td:nth-child(3)").text();
     $("input[name = 'id']").val(elements);
