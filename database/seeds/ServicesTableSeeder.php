@@ -11,8 +11,15 @@ class ServicesTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('services')->insert([
-          'name' => 'Even',
-      ]);
+      $data = array(
+        array('name' => 'haircut male'),
+        array('name' => 'haircut female'),
+        array('name' => 'full hair highlights'),
+        array('name' => 'blowout'),
+        array('name' => 'makeup'),
+        array('name' => 'toner'),
+        array('name' => 'keratine')
+      );
+      DB::table('services')->insert($data);
     }
 }
